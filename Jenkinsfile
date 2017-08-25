@@ -5,7 +5,7 @@ node() {
 
 	stage 'build'
 		env.PATH="${tool 'M3'}/bin:${env.PATH}"
-		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/issc29/workflow-demo']]])
+		checkout scm
 		sh 'mvn clean package'
 		archive 'target/*.war'
 
