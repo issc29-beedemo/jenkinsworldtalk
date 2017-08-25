@@ -1,3 +1,6 @@
+properties([[$class: 'HudsonNotificationProperty', endpoints: [[urlInfo: [urlOrId: 'http://hubot-issc29.herokuapp.com/hubot/jenkins-notify?room=general', urlType: 'PUBLIC']]]], pipelineTriggers([])])
+
+
 node('jdk8') {
 
 	stage 'build'
