@@ -1,7 +1,7 @@
 properties([[$class: 'HudsonNotificationProperty', endpoints: [[urlInfo: [urlOrId: 'http://hubot-issc29.herokuapp.com/hubot/jenkins-notify?room=general', urlType: 'PUBLIC']]]], pipelineTriggers([])])
 
 
-node('jdk8') {
+node() {
 
 	stage 'build'
 		env.PATH="${tool 'M3'}/bin:${env.PATH}"
@@ -20,7 +20,7 @@ if (env.BRANCH_NAME.length() < 3 || env.BRANCH_NAME.substring(0,3) != "PR-")
 stage 'quality-and-functional-test'
 
 	parallel(qualityTest: {
-    	node('jdk8') {
+    	node() {
     		echo 'sonar scan'
         	// sh 'mvn sonar:sonar'
     	}
